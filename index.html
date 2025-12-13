@@ -1,506 +1,1011 @@
 <!DOCTYPE html>
+
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue - Arkx Assurance Automobile</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <style>
-        /* ========================================================= */
-        /* 1. PALETTE DE COULEURS ET VARIABLES */
-        /* ========================================================= */
-        :root {
-            /* Couleurs extraites de votre logo/bannière */
-            --color-dark-blue: #1A346C;
-            --color-light-blue: #007bff;
-            --color-purple: #764ba2;
-            --color-accent: #00c7e2; /* Bleu Cyan Vif */
-            --color-card-bg: #f8f9fa; /* Gris très clair pour les cartes */
-            --color-text-dark: #333;
-            --color-text-light: #555;
-            --color-border: #e0e0e0;
-            --color-featured-glow: rgba(118, 75, 162, 0.4);
-            --gradient-cta: linear-gradient(90deg, var(--color-light-blue), var(--color-purple));
-            --color-success: #28a745; 
-            --color-danger: #dc3545; 
-        }
 
-        /* ========================================================= */
-        /* 2. STYLES GÉNÉRAUX & EN-TÊTE */
-        /* ========================================================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <meta charset="UTF-8">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #f0f2f5;
-            color: var(--color-text-dark);
-            line-height: 1.6;
-            padding: 0; 
-        }
-        
-        /* Conteneur principal */
-        .main-wrapper {
-            max-width: 1400px;
-            margin: 20px auto; 
-            background-color: var(--color-card-bg);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
-            overflow: hidden; 
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        /* NAVIGATION SIMPLIFIÉE */
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            border-bottom: 1px solid #f0f0f0;
-        }
+    <title>Catalogue - Arkx Assurance Automobile</title>
 
-        .top-nav .logo-area {
-            display: flex;
-            align-items: center;
-        }
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-        .top-nav .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin-right: 10px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+    <style>
 
-        .top-nav .logo-text {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--color-dark-text);
-        }
-        
-        .top-nav .logo-subtext {
-            font-size: 0.8rem;
-            color: var(--color-text-light);
-            display: block;
-            margin-top: -3px;
-        }
+        /* ========================================================= */
 
-        /* Style du bouton CONTACT unique */
-        .top-nav .contact-button {
-            text-decoration: none;
-            background: var(--gradient-cta);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            text-transform: uppercase;
-        }
+        /* 1. PALETTE DE COULEURS ET VARIABLES */
 
-        .top-nav .contact-button:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
+        /* ========================================================= */
 
-        /* BANNER SECTION */
-        .banner-section {
-            position: relative;
-            height: 350px;
-            /* URL RAW BANNER */
-            background: url('https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/banner.jpg') no-repeat center center;
-            background-size: cover;
-            padding: 50px 20px 200px;
-            color: white;
-            text-align: center;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            border-radius: 0 0 20px 20px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .banner-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(26, 52, 108, 0.5); 
-            z-index: 1;
-        }
+        :root {
 
-        .header h1, .header p, .banner-content {
-            position: relative;
-            z-index: 2;
-        }
+            /* Couleurs extraites de votre logo/bannière */
 
-        .header h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-        }
+            --color-dark-blue: #1A346C;
 
-        .header p {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #e0e0e0;
-        }
+            --color-light-blue: #007bff;
 
-        .logo-header {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 70px;
-            height: 70px;
-            z-index: 3;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
-        }
-        
-        .logo-header img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+            --color-purple: #764ba2;
 
-        /* ========================================================= */
-        /* 3. GRILLE DES OFFRES (PARALLÈLES) */
-        /* ========================================================= */
-        .container {
-            max-width: 1500px;
-            margin: -150px auto 40px; 
-            padding: 0 20px;
-            position: relative;
-            z-index: 5;
-        }
+            --color-accent: #00c7e2; /* Bleu Cyan Vif */
 
-        .formules-grid {
-            display: flex; 
-            justify-content: center;
-            gap: 25px;
-            flex-wrap: wrap;
-        }
+            --color-card-bg: #f8f9fa; /* Gris très clair pour les cartes */
 
-        .formule-card {
-            background: var(--color-card-bg);
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            width: 280px; 
-            min-height: 600px; 
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border: 1px solid var(--color-border);
-            text-align: center;
-        }
+            --color-text-dark: #333;
 
-        .formule-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 20px 50px rgba(118, 75, 162, 0.3);
-        }
+            --color-text-light: #555;
 
-        /* Effet Glow pour la carte MAXI */
-        .formule-card:last-child {
-            border: 3px solid var(--color-purple);
-            box-shadow: 0 0 30px var(--color-featured-glow), 0 20px 50px rgba(0, 0, 0, 0.2);
-        }
+            --color-border: #e0e0e0;
 
-        /* Ruban du nom de la formule */
-        .formule-name-ribbon {
-            background: var(--color-accent);
-            color: white;
-            padding: 10px 0;
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .formule-card:nth-child(2) .formule-name-ribbon { background: var(--color-purple); }
-        .formule-card:nth-child(3) .formule-name-ribbon { background: #667eea; }
-        .formule-card:nth-child(4) .formule-name-ribbon { background: var(--color-dark-blue); }
+            --color-featured-glow: rgba(118, 75, 162, 0.4);
+
+            --gradient-cta: linear-gradient(90deg, var(--color-light-blue), var(--color-purple));
+
+            --color-success: #28a745; 
+
+            --color-danger: #dc3545; 
+
+        }
 
 
-        .card-content {
-            padding: 0 20px;
-            flex-grow: 1;
-        }
-        
-        .card-title {
-            font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--color-dark-blue);
-            margin-bottom: 10px;
-        }
 
-        .card-slogan {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--color-purple);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+        /* ========================================================= */
 
-        /* Image de la voiture au centre de la carte */
-        .card-image-wrapper {
-            width: 100%;
-            height: 100px;
-            overflow: hidden;
-            margin: 0 0 20px;
-        }
-        
-        .card-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.8;
-            transition: opacity 0.3s, transform 0.3s;
-        }
-        
-        .formule-card:hover .card-image-wrapper img {
-            opacity: 1;
-            transform: scale(1.1);
-        }
+        /* 2. STYLES GÉNÉRAUX & EN-TÊTE */
 
-        /* Liste des garanties */
-        .guarantee-list {
-            list-style: none;
-            text-align: left;
-            padding: 0 10px;
-            font-size: 0.9rem;
-            color: var(--color-text-light);
-        }
+        /* ========================================================= */
 
-        .guarantee-list li {
-            margin-bottom: 8px;
-            display: flex;
-            align-items: flex-start;
-        }
+        * {
 
-        .guarantee-list .icon {
-            font-size: 1.1rem;
-            margin-right: 8px;
-            flex-shrink: 0;
-            color: var(--color-success);
-            font-weight: bold;
-        }
-        
-        .guarantee-list .icon.cross {
-            color: var(--color-danger);
-            font-weight: bold;
-        }
+            margin: 0;
 
-        .price-area {
-            padding: 20px;
-            border-top: 2px solid var(--color-border);
-            background-color: #f1f1f1;
-        }
+            padding: 0;
 
-        .formule-price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--color-dark-blue);
-            line-height: 1;
-            margin-bottom: 10px;
-        }
-        
-        .formule-price small {
-            font-size: 0.4em;
-            font-weight: 600;
-            color: var(--color-purple);
-        }
+            box-sizing: border-box;
 
-        .cta-button {
-            width: 100%;
-            padding: 12px;
-            background: var(--gradient-cta);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            text-transform: uppercase;
-             text-align: center; /* Ajouté pour centrer le texte dans le lien */
-             display: block; /* Ajouté pour que le lien prenne toute la largeur */
-             text-decoration: none; /* Ajouté pour supprimer le soulignement du lien */
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            opacity: 0.9;
-        }
+        }
 
-        /* ========================================================= */
-        /* 4. RESPONSIVE DESIGN */
-        /* ========================================================= */
-        @media (max-width: 1200px) {
-            .formules-grid {
-                gap: 20px;
-            }
-            .formule-card {
-                width: 45%; 
-            }
-        }
 
-        @media (max-width: 650px) {
-            .header { padding: 30px 10px 150px; }
-            .header h1 { font-size: 2.5rem; }
-            .container { margin-top: -100px; }
-            .formules-grid { gap: 30px; }
-            .formule-card {
-                width: 100%; 
-                min-height: auto;
-            }
-        }
-    </style>
+
+        body {
+
+            font-family: 'Montserrat', sans-serif;
+
+            background-color: #f0f2f5;
+
+            color: var(--color-text-dark);
+
+            line-height: 1.6;
+
+            padding: 0; 
+
+        }
+
+        
+
+        /* Conteneur principal */
+
+        .main-wrapper {
+
+            max-width: 1400px;
+
+            margin: 20px auto; 
+
+            background-color: var(--color-card-bg);
+
+            border-radius: 20px;
+
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+
+            overflow: hidden; 
+
+        }
+
+
+
+        /* NAVIGATION SIMPLIFIÉE */
+
+        .top-nav {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 20px 40px;
+
+            border-bottom: 1px solid #f0f0f0;
+
+        }
+
+
+
+        .top-nav .logo-area {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+
+        .top-nav .logo {
+
+            width: 40px;
+
+            height: 40px;
+
+            border-radius: 50%;
+
+            margin-right: 10px;
+
+            object-fit: cover;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        }
+
+
+
+        .top-nav .logo-text {
+
+            font-size: 1.2rem;
+
+            font-weight: 700;
+
+            color: var(--color-dark-text);
+
+        }
+
+        
+
+        .top-nav .logo-subtext {
+
+            font-size: 0.8rem;
+
+            color: var(--color-text-light);
+
+            display: block;
+
+            margin-top: -3px;
+
+        }
+
+
+
+        /* Style du bouton CONTACT unique */
+
+        .top-nav .contact-button {
+
+            text-decoration: none;
+
+            background: var(--gradient-cta);
+
+            color: white;
+
+            padding: 10px 20px;
+
+            border-radius: 8px;
+
+            font-weight: 600;
+
+            transition: all 0.2s ease-in-out;
+
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .top-nav .contact-button:hover {
+
+            opacity: 0.9;
+
+            transform: translateY(-1px);
+
+        }
+
+
+
+        /* BANNER SECTION */
+
+        .banner-section {
+
+            position: relative;
+
+            height: 350px;
+
+            /* URL RAW BANNER */
+
+            background: url('https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/banner.jpg') no-repeat center center;
+
+            background-size: cover;
+
+            padding: 50px 20px 200px;
+
+            color: white;
+
+            text-align: center;
+
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+
+            border-radius: 0 0 20px 20px;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+        
+
+        .banner-section::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            bottom: 0;
+
+            background: rgba(26, 52, 108, 0.5); 
+
+            z-index: 1;
+
+        }
+
+
+
+        .header h1, .header p, .banner-content {
+
+            position: relative;
+
+            z-index: 2;
+
+        }
+
+
+
+        .header h1 {
+
+            font-size: 3.5rem;
+
+            font-weight: 900;
+
+            margin-bottom: 5px;
+
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+
+        }
+
+
+
+        .header p {
+
+            font-size: 1.4rem;
+
+            font-weight: 500;
+
+            color: #e0e0e0;
+
+        }
+
+
+
+        .logo-header {
+
+            position: absolute;
+
+            top: 20px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 70px;
+
+            height: 70px;
+
+            z-index: 3;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, 0.2);
+
+            padding: 10px;
+
+        }
+
+        
+
+        .logo-header img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+        }
+
+
+
+        /* ========================================================= */
+
+        /* 3. GRILLE DES OFFRES (PARALLÈLES) */
+
+        /* ========================================================= */
+
+        .container {
+
+            max-width: 1500px;
+
+            margin: -150px auto 40px; 
+
+            padding: 0 20px;
+
+            position: relative;
+
+            z-index: 5;
+
+        }
+
+
+
+        .formules-grid {
+
+            display: flex; 
+
+            justify-content: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+
+        .formule-card {
+
+            background: var(--color-card-bg);
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+
+            width: 280px; 
+
+            min-height: 600px; 
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+            overflow: hidden;
+
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            position: relative;
+
+            border: 1px solid var(--color-border);
+
+            text-align: center;
+
+        }
+
+
+
+        .formule-card:hover {
+
+            transform: translateY(-15px) scale(1.03);
+
+            box-shadow: 0 20px 50px rgba(118, 75, 162, 0.3);
+
+        }
+
+
+
+        /* Effet Glow pour la carte MAXI */
+
+        .formule-card:last-child {
+
+            border: 3px solid var(--color-purple);
+
+            box-shadow: 0 0 30px var(--color-featured-glow), 0 20px 50px rgba(0, 0, 0, 0.2);
+
+        }
+
+
+
+        /* Ruban du nom de la formule */
+
+        .formule-name-ribbon {
+
+            background: var(--color-accent);
+
+            color: white;
+
+            padding: 10px 0;
+
+            font-size: 1.2rem;
+
+            font-weight: 800;
+
+            margin-bottom: 20px;
+
+            letter-spacing: 0.5px;
+
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        }
+
+        
+
+        .formule-card:nth-child(2) .formule-name-ribbon { background: var(--color-purple); }
+
+        .formule-card:nth-child(3) .formule-name-ribbon { background: #667eea; }
+
+        .formule-card:nth-child(4) .formule-name-ribbon { background: var(--color-dark-blue); }
+
+
+
+
+
+        .card-content {
+
+            padding: 0 20px;
+
+            flex-grow: 1;
+
+        }
+
+        
+
+        .card-title {
+
+            font-size: 1.6rem;
+
+            font-weight: 900;
+
+            color: var(--color-dark-blue);
+
+            margin-bottom: 10px;
+
+        }
+
+
+
+        .card-slogan {
+
+            font-size: 0.95rem;
+
+            font-weight: 600;
+
+            color: var(--color-purple);
+
+            margin-bottom: 20px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        /* Image de la voiture au centre de la carte */
+
+        .card-image-wrapper {
+
+            width: 100%;
+
+            height: 100px;
+
+            overflow: hidden;
+
+            margin: 0 0 20px;
+
+        }
+
+        
+
+        .card-image-wrapper img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0.8;
+
+            transition: opacity 0.3s, transform 0.3s;
+
+        }
+
+        
+
+        .formule-card:hover .card-image-wrapper img {
+
+            opacity: 1;
+
+            transform: scale(1.1);
+
+        }
+
+
+
+        /* Liste des garanties */
+
+        .guarantee-list {
+
+            list-style: none;
+
+            text-align: left;
+
+            padding: 0 10px;
+
+            font-size: 0.9rem;
+
+            color: var(--color-text-light);
+
+        }
+
+
+
+        .guarantee-list li {
+
+            margin-bottom: 8px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+        }
+
+
+
+        .guarantee-list .icon {
+
+            font-size: 1.1rem;
+
+            margin-right: 8px;
+
+            flex-shrink: 0;
+
+            color: var(--color-success);
+
+            font-weight: bold;
+
+        }
+
+        
+
+        .guarantee-list .icon.cross {
+
+            color: var(--color-danger);
+
+            font-weight: bold;
+
+        }
+
+
+
+        .price-area {
+
+            padding: 20px;
+
+            border-top: 2px solid var(--color-border);
+
+            background-color: #f1f1f1;
+
+        }
+
+
+
+        .formule-price {
+
+            font-size: 2.5rem;
+
+            font-weight: 900;
+
+            color: var(--color-dark-blue);
+
+            line-height: 1;
+
+            margin-bottom: 10px;
+
+        }
+
+        
+
+        .formule-price small {
+
+            font-size: 0.4em;
+
+            font-weight: 600;
+
+            color: var(--color-purple);
+
+        }
+
+
+
+        .cta-button {
+
+            width: 100%;
+
+            padding: 12px;
+
+            background: var(--gradient-cta);
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 1rem;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+            text-transform: uppercase;
+
+            text-decoration: none;
+
+            display: block;
+
+            text-align: center;
+
+        }
+
+        
+
+        .cta-button:hover {
+
+            transform: translateY(-2px);
+
+            opacity: 0.9;
+
+        }
+
+
+
+        /* ========================================================= */
+
+        /* 4. RESPONSIVE DESIGN */
+
+        /* ========================================================= */
+
+        @media (max-width: 1200px) {
+
+            .formules-grid {
+
+                gap: 20px;
+
+            }
+
+            .formule-card {
+
+                width: 45%; 
+
+            }
+
+        }
+
+
+
+        @media (max-width: 650px) {
+
+            .header { padding: 30px 10px 150px; }
+
+            .header h1 { font-size: 2.5rem; }
+
+            .container { margin-top: -100px; }
+
+            .formules-grid { gap: 30px; }
+
+            .formule-card {
+
+                width: 100%; 
+
+                min-height: auto;
+
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-    <div class="main-wrapper">
-        <div class="top-nav">
-            <div class="logo-area">
-                <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/logo.png" alt="Logo Arkx" class="logo">
-                <span class="logo-text">ArkxAssurance<span class="logo-subtext">Votre partenaire sérénité</span></span>
-            </div>
-            
-            <a href="#" class="contact-button">CONTACT</a>
-        </div>
 
-        <div class="banner-section">
-            <div class="logo-header">
-                <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/logo.png" alt="Logo Arkx">
-            </div>
-            <div class="banner-content">
-                <h1>Protection Intelligente</h1>
-                <p>Propulsée par l'Intelligence Artificielle</p>
-            </div>
-        </div>
 
-        <div class="container">
-            <div class="formules-grid">
-                
-                <div class="formule-card">
-                    <div class="formule-name-ribbon">TIERS</div>
-                    <div class="card-content">
-                        <h2 class="card-title">TIERS STANDARD</h2>
-                        <p class="card-slogan">L'essentiel pour circuler</p>
-                        <div class="card-image-wrapper">
-                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture.jpg" alt="Voiture Tiers Standard">
-                        </div>
-                        
-                        <ul class="guarantee-list">
-                            <li><span class="icon">✓</span>Responsabilité Civile</li>
-                            <li><span class="icon">✓</span>Défense Pénale et Recours</li>
-                            <li><span class="icon">✓</span>Assistance 24/7 (dès 50 km panne)</li>
-                            <li><span class="icon">✓</span>Garantie Conducteur (400 000 €)</li>
-                            <li><span class="icon cross">✗</span>Tempêtes et climatiques</li>
-                            <li><span class="icon cross">✗</span>Bris de glace</li>
-                            <li><span class="icon cross">✗</span>Vol, Incendie, Dommages</li>
-                            <li><span class="icon cross">✗</span>Indemnisation Valeur à neuf</li>
-                        </ul>
-                    </div>
-                    <div class="price-area">
-                        <div class="formule-price">32€<small>/mois</small></div>
-                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TIERS</a>
-                    </div>
-                </div>
+    <div class="main-wrapper">
 
-                <div class="formule-card">
-                    <div class="formule-name-ribbon">TIERS MAXI</div>
-                    <div class="card-content">
-                        <h2 class="card-title">TIERS ÉTENDU</h2>
-                        <p class="card-slogan">Couverture Incendie & Vol</p>
-                        <div class="card-image-wrapper">
-                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture1.jpg" alt="Voiture Tiers Maxi">
-                        </div>
-                        
-                        <ul class="guarantee-list">
-                            <li><span class="icon">✓</span>**Toutes les garanties TIERS**</li>
-                            <li><span class="icon">✓</span>Tempêtes et climatiques</li>
-                            <li><span class="icon">✓</span>Attentats, Catastrophes naturelles</li>
-                            <li><span class="icon">✓</span>Bris de glace (pare-brise, glaces)</li>
-                            <li><span class="icon">✓</span>Incendie (y compris vandalisme)</li>
-                            <li><span class="icon">✓</span>Vol et Tentative de Vol</li>
-                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (1 an)</li>
-                            <li><span class="icon cross">✗</span>Dommages Tous Accidents</li>
-                        </ul>
-                    </div>
-                    <div class="price-area">
-                        <div class="formule-price">42€<small>/mois</small></div>
-                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TIERS MAXI</a>
-                    </div>
-                </div>
+        <div class="top-nav">
 
-                <div class="formule-card">
-                    <div class="formule-name-ribbon">TOUS RISQUES</div>
-                    <div class="card-content">
-                        <h2 class="card-title">TOUS RISQUES</h2>
-                        <p class="card-slogan">Protection Totale Intégrale</p>
-                        <div class="card-image-wrapper">
-                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture2.jpg" alt="Voiture Tous Risques">
-                        </div>
-                        
-                        <ul class="guarantee-list">
-                            <li><span class="icon">✓</span>**Toutes les garanties Tiers Maxi**</li>
-                            <li><span class="icon">✓</span>Dommages Tous Accidents (y compris Vandalisme)</li>
-                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (1 an)</li>
-                            <li><span class="icon cross">✗</span>Bris de glace étendu aux optiques</li>
-                            <li><span class="icon cross">✗</span>Contenu du véhicule</li>
-                            <li><span class="icon cross">✗</span>Assistance en cas de panne : dès 0 km (En option)</li>
-                            <li><span class="icon cross">✗</span>Garantie Conducteur étendue (En option)</li>
-                        </ul>
-                    </div>
-                    <div class="price-area">
-                        <div class="formule-price">54€<small>/mois</small></div>
-                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TOUS RISQUES</a>
-                    </div>
-                </div>
+            <div class="logo-area">
 
-                <div class="formule-card">
-                    <div class="formule-name-ribbon">TOUS RISQUES MAXI</div>
-                    <div class="card-content">
-                        <h2 class="card-title">TOUS RISQUES MAXI</h2>
-                        <p class="card-slogan">L'excellence Sans Compromis</p>
-                        <div class="card-image-wrapper">
-                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture3.jpg" alt="Voiture Tous Risques Maxi">
-                        </div>
-                        
-                        <ul class="guarantee-list">
-                            <li><span class="icon">✓</span>**Toutes les garanties Tous Risques**</li>
-                            <li><span class="icon">✓</span>Garantie Conducteur étendue (1 500 000 €)</li>
-                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (4 ans)</li>
-                            <li><span class="icon">✓</span>Bris de glace étendu (optiques, toit vitré)</li>
-                            <li><span class="icon">✓</span>Contenu du véhicule jusqu'à 1 000 €)</li>
-                            <li><span class="icon">✓</span>Assistance 0 km (Panne, clefs perdues)</li>
-                            <li><span class="icon">✓</span>Véhicule de prêt étendu (dès 0 km)</li>
-                            <li><span class="icon">✓</span>Pas de Franchise Bris de glace (En option)</li>
-                        </ul>
-                    </div>
-                    <div class="price-area">
-                        <div class="formule-price">78€<small>/mois</small></div>
-                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire MAXI</a>
-                    </div>
-                </div>
+                <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/logo.png" alt="Logo Arkx" class="logo">
 
-            </div>
-        </div>
-    </div>
+                <span class="logo-text">ArkxAssurance<span class="logo-subtext">Votre partenaire sérénité</span></span>
+
+            </div>
+
+            
+
+            <a href="#" class="contact-button">CONTACT</a>
+
+        </div>
+
+
+
+        <div class="banner-section">
+
+            <div class="logo-header">
+
+                <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/logo.png" alt="Logo Arkx">
+
+            </div>
+
+            <div class="banner-content">
+
+                <h1>Protection Intelligente</h1>
+
+                <p>Propulsée par l'Intelligence Artificielle</p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container">
+
+            <div class="formules-grid">
+
+                
+
+                <div class="formule-card">
+
+                    <div class="formule-name-ribbon">TIERS</div>
+
+                    <div class="card-content">
+
+                        <h2 class="card-title">TIERS STANDARD</h2>
+
+                        <p class="card-slogan">L'essentiel pour circuler</p>
+
+                        <div class="card-image-wrapper">
+
+                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture.jpg" alt="Voiture Tiers Standard">
+
+                        </div>
+
+                        
+
+                        <ul class="guarantee-list">
+
+                            <li><span class="icon">✓</span>Responsabilité Civile</li>
+
+                            <li><span class="icon">✓</span>Défense Pénale et Recours</li>
+
+                            <li><span class="icon">✓</span>Assistance 24/7 (dès 50 km panne)</li>
+
+                            <li><span class="icon">✓</span>Garantie Conducteur (400 000 €)</li>
+
+                            <li><span class="icon cross">✗</span>Tempêtes et climatiques</li>
+
+                            <li><span class="icon cross">✗</span>Bris de glace</li>
+
+                            <li><span class="icon cross">✗</span>Vol, Incendie, Dommages</li>
+
+                            <li><span class="icon cross">✗</span>Indemnisation Valeur à neuf</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="price-area">
+
+                        <div class="formule-price">32€<small>/mois</small></div>
+
+                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TIERS</a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="formule-card">
+
+                    <div class="formule-name-ribbon">TIERS MAXI</div>
+
+                    <div class="card-content">
+
+                        <h2 class="card-title">TIERS ÉTENDU</h2>
+
+                        <p class="card-slogan">Couverture Incendie & Vol</p>
+
+                        <div class="card-image-wrapper">
+
+                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture1.jpg" alt="Voiture Tiers Maxi">
+
+                        </div>
+
+                        
+
+                        <ul class="guarantee-list">
+
+                            <li><span class="icon">✓</span>**Toutes les garanties TIERS**</li>
+
+                            <li><span class="icon">✓</span>Tempêtes et climatiques</li>
+
+                            <li><span class="icon">✓</span>Attentats, Catastrophes naturelles</li>
+
+                            <li><span class="icon">✓</span>Bris de glace (pare-brise, glaces)</li>
+
+                            <li><span class="icon">✓</span>Incendie (y compris vandalisme)</li>
+
+                            <li><span class="icon">✓</span>Vol et Tentative de Vol</li>
+
+                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (1 an)</li>
+
+                            <li><span class="icon cross">✗</span>Dommages Tous Accidents</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="price-area">
+
+                        <div class="formule-price">42€<small>/mois</small></div>
+
+                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TIERS MAXI</a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="formule-card">
+
+                    <div class="formule-name-ribbon">TOUS RISQUES</div>
+
+                    <div class="card-content">
+
+                        <h2 class="card-title">TOUS RISQUES</h2>
+
+                        <p class="card-slogan">Protection Totale Intégrale</p>
+
+                        <div class="card-image-wrapper">
+
+                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture2.jpg" alt="Voiture Tous Risques">
+
+                        </div>
+
+                        
+
+                        <ul class="guarantee-list">
+
+                            <li><span class="icon">✓</span>**Toutes les garanties Tiers Maxi**</li>
+
+                            <li><span class="icon">✓</span>Dommages Tous Accidents (y compris Vandalisme)</li>
+
+                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (1 an)</li>
+
+                            <li><span class="icon cross">✗</span>Bris de glace étendu aux optiques</li>
+
+                            <li><span class="icon cross">✗</span>Contenu du véhicule</li>
+
+                            <li><span class="icon cross">✗</span>Assistance en cas de panne : dès 0 km (En option)</li>
+
+                            <li><span class="icon cross">✗</span>Garantie Conducteur étendue (En option)</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="price-area">
+
+                        <div class="formule-price">54€<small>/mois</small></div>
+
+                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire TOUS RISQUES</a>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="formule-card">
+
+                    <div class="formule-name-ribbon">TOUS RISQUES MAXI</div>
+
+                    <div class="card-content">
+
+                        <h2 class="card-title">TOUS RISQUES MAXI</h2>
+
+                        <p class="card-slogan">L'excellence Sans Compromis</p>
+
+                        <div class="card-image-wrapper">
+
+                            <img src="https://raw.githubusercontent.com/abdelhadisdedek-droid/Arkxassurance_offres/main/voiture3.jpg" alt="Voiture Tous Risques Maxi">
+
+                        </div>
+
+                        
+
+                        <ul class="guarantee-list">
+
+                            <li><span class="icon">✓</span>**Toutes les garanties Tous Risques**</li>
+
+                            <li><span class="icon">✓</span>Garantie Conducteur étendue (1 500 000 €)</li>
+
+                            <li><span class="icon">✓</span>Indemnisation Valeur à neuf (4 ans)</li>
+
+                            <li><span class="icon">✓</span>Bris de glace étendu (optiques, toit vitré)</li>
+
+                            <li><span class="icon">✓</span>Contenu du véhicule jusqu'à 1 000 €)</li>
+
+                            <li><span class="icon">✓</span>Assistance 0 km (Panne, clefs perdues)</li>
+
+                            <li><span class="icon">✓</span>Véhicule de prêt étendu (dès 0 km)</li>
+
+                            <li><span class="icon">✓</span>Pas de Franchise Bris de glace (En option)</li>
+
+                        </ul>
+
+                    </div>
+
+                    <div class="price-area">
+
+                        <div class="formule-price">78€<small>/mois</small></div>
+
+                        <a href="https://arkxassurance-dev-ed.trailblaze.my.site.com/arkxassurance/s/changementoffre" class="cta-button">Souscrire MAXI</a>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
 
 </body>
+
 </html>
